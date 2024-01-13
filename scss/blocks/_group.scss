@@ -1,0 +1,195 @@
+@use "../mixin" as m;
+.hero__group-wrapper {
+  @include m.layout("","");
+}
+.group__info-wrapper {
+  width: 100%;
+  padding-top: 20px;
+}
+.group__info-title {
+  margin: 0;
+  margin-bottom: 32px;
+  margin-left: 30px;
+  padding: 20px 20px 20px 32px;
+  font-size: 36px;
+  letter-spacing: 0.36px;
+  color: var(--main-blue-color);
+  border: 1px solid var(--main-blue-color);
+  border-radius: 20px;
+  background-color: var(--main-white-color);
+}
+.group__main-info-wrapper {
+  padding-left: 80px;
+  padding-bottom: 60px;
+}
+.group__form-title {
+  margin: 0;
+  margin-bottom: 32px;
+  font-size: 40px;
+  font-weight: var(--main-semibold-font-weight);
+  letter-spacing: 0.8px;
+  color: var(--main-blue-color);
+}
+.group__form {
+  position: relative;
+  @include m.layout(space-between,center);
+  flex-wrap: wrap;
+  width: 100%;
+  padding-bottom: 52px;
+}
+.group__form-input-wrapper {
+  @include m.layout("","");
+  flex-direction: column;
+  gap: 16px;
+  margin-right: 32px;
+  margin-bottom: 32px;
+}
+.group__form-input-wrapper:nth-of-type(3n) {
+  margin-right: 0;
+}
+.group__form-input-title {
+  font-size: 20px;
+  font-weight: var(--main-semibold-font-weight);
+  letter-spacing: 0.4px;
+  color: var(--main-black-color);
+}
+.group__form-input {
+  max-width: 314px;
+  width: 100vh;
+  padding: 13px 12px;
+  border: 1px solid var(--main-border-color);
+  border-radius: 8px;
+  background-color: var(--main-white-color);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.20);
+  cursor: pointer;
+}
+.group__form-select {
+  appearance: none;
+  background-image: url("/images/svg/selecticon.svg");
+  background-repeat: no-repeat;
+  background-position: 280px center;
+  cursor: pointer;
+}
+.group__form-btn-box {
+  position: relative;
+  max-width: 314px;
+  width: 100%;
+  margin-top: 10px;
+}
+.group__form-btn {
+  width: 100%;
+  padding: 13px;
+  font-size: 18px;
+  letter-spacing: 0.36px;
+  color: var(--main-white-color);
+  border: 1px solid var(--main-blue-color);
+  border-radius: 8px;
+  background-color: var(--main-blue-color);
+  cursor: pointer;
+}
+.group__form-btn:hover::after {
+  position: absolute;
+  top: 9px;
+  left: 200px;
+  font-size: 25px;
+  font-weight: var(--main-semibold-font-weight);
+  content: " +";
+}
+.group__form-btn:active {
+  transform: scale(0.97);
+}
+// group teacher info style started
+.group__info-subtitle {
+  margin: 0;
+  margin-bottom: 34px;
+  font-size: 36px;
+  font-weight: var(--main-bold-font-weight);
+  letter-spacing: 0.36px;
+  color: var(--main-blue-color);
+}
+.group__info-list {
+  max-height: 610px;
+  height: 100%;
+  @include m.layout("",center);
+  flex-wrap: wrap;
+  gap: 22px;
+  @include m.unstyledlist();
+  border-radius: 16px;
+  overflow-y: scroll;
+  scrollbar-color: var(--main-blue-color);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.20);
+  display: none;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  overflow-x: none;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--main-white-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-blue-color);
+}
+.group__info-item {
+  max-width: 320px;
+  width: 100%;
+  border: 1px solid var(--main-white-color);
+  border-radius: 16px;
+  background-color: var(--main-white-color);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.20);
+}
+.group__info-itembox {
+  padding: 12px 12px 25px 12px;
+}
+.group__info-item-title {
+  margin: 0;
+  padding: 18px;
+  font-size: 20px;
+  font-weight: var(--main-semibold-font-weight);
+  letter-spacing: 0.2px;
+  text-align: center;
+  border-radius: 16px 16px 0px 0px;
+  background-color: var(--main-blue-color);
+  color: var(--main-white-color);
+}
+.group__info-item-img-box {
+  @include m.layout("",center);
+  gap: 5px;
+  padding-bottom: 33px;
+}
+.group__info-item-img {
+  max-width: 80px;
+  width: 100%;
+  border-radius: 50%
+}
+.group__info-item-teacher-infobox {
+  @include m.layout("","");
+  flex-direction: column;
+  gap: 12px;
+}
+.group__info-item-teacherbox {
+  @include m.layout("","");
+  gap: 5px;
+}
+.group__info-item-subtitle {
+  font-size: 16px;
+  font-weight: var(--main-bold-font-weight);
+  letter-spacing: 0.16px;
+  color: var(--main-card-title-color);
+  text-align: center;
+}
+.group__info-item-text {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.14px;
+  color: var(--main-black-color);
+}
+.group__info-item-lesson-wrapper {
+  @include m.layout("","");
+  flex-direction: column;
+  gap: 12px;
+}
+.group__info-item-lessonbox {
+  @include m.layout(space-between,center);
+}

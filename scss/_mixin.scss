@@ -1,0 +1,10 @@
+@mixin layout($jc: flex-start,$ai: stretch) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+@mixin unstyledlist {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}

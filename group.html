@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Training Center Group part</title>
+</head>
+<body>
+  <!-- site header started -->
+  <header class="site-header"></header>
+  <!-- site header end -->
+  <!-- site main started -->
+  <main class="site-main">
+    <!-- hero section started -->
+    <section class="hero__group group">
+      <div class="container">
+        <div class="hero__group-wrapper">
+          <!-- crm panel started -->
+          <div class="hero__site-menu-wrapper">
+            <div class="hero__crm-panel-wrapper">
+            <div class="hero__btn-wrapper">
+              <div class="hero__titlebox">
+                <h2 class="hero__title">
+                  CRM PANEL
+                </h2>
+              </div>
+              <button class="hero__crm-panel-btn js-crm-panel-btn" type="button"></button>
+            </div>
+            </div>
+            <ul class="hero__menu-list">
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="index.html">Xisobot</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="student.html">O’quvchilar</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="group.html">Guruhlar</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="teacher.html">O’qtuvchilar</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="subject.html">Fanlar</a>
+              </li>
+            </ul>
+          </div>
+          <!-- crm panel end -->
+          <div class="group__info-wrapper">
+            <h3 class="group__info-title">
+              Guruhlar
+            </h3>
+            <div class="group__main-info-wrapper">
+              <h3 class="group__form-title">
+                Yangi guruh qo’shish
+              </h3>
+              <!-- group form started -->
+              <form class="group__form">
+                <div class="group__form-input-wrapper">
+                  <span class="group__form-input-title">
+                    Guruh yo’nalishi
+                  </span>
+                  <select class="group__form-input group__form-select js-group-subject-select" name="group_info">
+                    <option value="0" hidden>Select a subject</option>
+                    <option value="1">Matematika</option>
+                  </select>
+                </div>
+                <div class="group__form-input-wrapper">
+                  <span class="group__form-input-title">
+                    Dars kunlari
+                  </span>
+                  <select class="group__form-input group__form-select js-group-day-select" name="group_info">
+                    <option value="0" hidden>Select a day</option>
+                  </select>
+                </div>
+                <div class="group__form-input-wrapper">
+                  <span class="group__form-input-title">
+                    Guruh nomi
+                  </span>
+                  <select class="group__form-input group__form-select js-group-select" name="group_info">
+                    <option value="0" hidden>Select a group</option>
+                  </select>
+                </div>
+                <div class="group__form-input-wrapper">
+                  <span class="group__form-input-title">
+                    O’qituvchi
+                  </span>
+                  <select class="group__form-input group__form-select js-group-teacher-select" name="group_info">
+                    <option value="0" hidden>Select a teacher</option>
+                  </select>
+                </div>
+                <div class="group__form-input-wrapper">
+                  <span class="group__form-input-title">
+                    Dars boshlanishi vaqti
+                  </span>
+                  <input class="group__form-input js-group-start-time-input" type="time" name="group_time_start" aria-label="Enter the start time" required>
+                </div>
+                <div class="group__form-input-wrapper">
+                  <span class="group__form-input-title">
+                    Dars tugash vaqti
+                  </span>
+                  <input class="group__form-input js-group-stop-time-input" type="time" name="group_time_stop" aria-label="Enter the stop time" required>
+                </div>
+                <div class="group__form-btn-box">
+                  <button class="group__form-btn" type="submit">Qo’shish</button>
+                </div>
+              </form>
+              <!-- group form end -->
+              <!-- data in groups started -->
+              <h3 class="group__info-subtitle">
+                Mavjud guruhlar
+              </h3>
+              <ul class="group__info-list">
+                <li class="group__info-item">
+                  <h4 class="group__info-item-title">
+                    Matematika
+                  </h4>
+                  <div class="group__info-itembox">
+                    <div class="group__info-item-img-box">
+                      <img class="group__info-item-img" src="images/png/imageone.png" width="80" height="80" alt="imageone">
+                      <div class="group__info-item-teacher-infobox">
+                        <div class="group__info-item-teacherbox">
+                          <span class="group__info-item-subtitle">O’qituvchi:</span>
+                          <p class="group__info-item-text">
+                            Muxamadaliyev Ibroxim
+                          </p>
+                        </div>
+                        <div class="group__info-item-teacherbox">
+                          <span class="group__info-item-subtitle">Tell raqam:</span>
+                          <p class="group__info-item-text">
+                            +998900113861
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="group__info-item-lesson-wrapper">
+                      <div class="group__info-item-lessonbox">
+                        <span class="group__info-item-subtitle">
+                          Dars kunlari:
+                        </span>
+                        <p class="group__info-item-text">
+                          DU-CHOR-JUMA
+                        </p>
+                      </div>
+                      <div class="group__info-item-lessonbox">
+                        <span class="group__info-item-subtitle">
+                          Dars vaqti:
+                        </span>
+                        <p class="group__info-item-text">
+                          14:00-16:00
+                        </p>
+                      </div>
+                      <div class="group__info-item-lessonbox">
+                        <span class="group__info-item-subtitle">
+                          O’quvchilar soni
+                        </span>
+                        <p class="group__info-item-text">
+                          25ta
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <!-- data in groups end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- hero section end -->
+  </main>
+  <!-- site main end -->
+  <!-- site footer started -->
+  <footer class="site-footer">
+
+  </footer>
+  <!-- site footer end -->
+  <script src="js/group.js"></script>
+</body>
+</html>

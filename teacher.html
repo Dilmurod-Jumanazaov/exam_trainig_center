@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Training Center Teacher part</title>
+</head>
+<body>
+  <!-- site header started -->
+  <header class="site-header"></header>
+  <!-- site header end -->
+  <!-- site main started -->
+  <main class="site-main">
+    <!-- hero section started -->
+    <section class="hero__teacher">
+      <div class="container">
+        <div class="hero__teacher-wrapper">
+          <!-- crm panel started -->
+          <div class="hero__site-menu-wrapper">
+            <div class="hero__crm-panel-wrapper">
+              <div class="hero__btn-wrapper">
+                <div class="hero__titlebox">
+                  <h2 class="hero__title">
+                    CRM PANEL
+                  </h2>
+                </div>
+                <button class="hero__crm-panel-btn js-crm-panel-btn" type="button"></button>
+              </div>
+            </div>
+            <ul class="hero__menu-list">
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="index.html">Xisobot</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="student.html">O’quvchilar</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="group.html">Guruhlar</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="teacher.html">O’qtuvchilar</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="subject.html">Fanlar</a>
+              </li>
+            </ul>
+          </div>
+          <!-- crm panel end -->
+          <!-- teacher info wrapper started -->
+          <div class="hero__teacher-main-info-wrapper teacher-info">
+            <h3 class="teacher-info__title">
+              O’qtuvchilar
+            </h3>
+            <div class="teacher-form-wrapper">
+              <h3 class="teacher-info__form-title">
+                Yangi o’qtuvchi qo’shish
+              </h3>
+              <!-- teacher form started -->
+              <form class="teacher-info__form js-teacher-info-form teacher-form">
+                <div class="teacher-form-input-box">
+                  <span class="teacher-form-input-title">
+                    O’qtuvchi familiyasi
+                  </span>
+                  <input class="teacher-form-input js-teacher-form-surname-input" type="text" name="last_name" aria-label="Enter your last name" placeholder="Familiya" required>
+                </div>
+                <div class="teacher-form-input-box">
+                  <span class="teacher-form-input-title">
+                    O’qtuvchi ismi
+                  </span>
+                  <input class="teacher-form-input js-teacher-form-name-input" type="text" name="first_name" aria-label="Enter your first name" placeholder="Ism" required>
+                </div>
+                <div class="teacher-form-input-box">
+                  <span class="teacher-form-input-title">
+                    Yoshi
+                  </span>
+                  <input class="teacher-form-input js-teacher-form-age-input" type="number" name="age" aria-label="Enter your age" placeholder="Yosh" required>
+                </div>
+                <div class="teacher-form-input-box">
+                  <span class="teacher-form-input-title">
+                    Telefon raqam
+                  </span>
+                  <input class="teacher-form-input js-teacher-form-phone-input" type="tel" name="age" aria-label="Enter your phone number" placeholder="+998(xx)xxx-xx-xx" required>
+                </div>
+                <div class="teacher-form-input-box">
+                  <span class="teacher-form-input-title">
+                    Rasm 3x4
+                  </span>
+                  <input class="teacher-form-input js-teacher-form-image-input teacher-form-image-input" type="file" id="image" name="age" aria-label="Enter your 3x4 image" required>
+                  <label class="teacher-form-image-input-label" for="image">Rasm yuklash</label>
+                </div>
+                <div class="teacher-form-input-box">
+                  <span class="teacher-form-input-title">
+                    Yo’nalish
+                  </span>
+                  <select class="teacher-form-input js-teacher-form-select teacher-form-select">
+                    <option value="direction" hidden>Select a subject</option>
+                  </select>
+                </div>
+                <div class="teacher-form-btn-wrapper">
+                  <button class="teacher-form-btn" type="submit">
+                    Qo’shish
+                  </button>
+                </div>
+              </form>
+              <!-- teacher form end -->
+              <div class="teacher-info__search-input-wrapper">
+                <h3 class="teacher-info__search-subtitle">
+                  Bizning o’qtuvchilar
+                </h3>
+                <input class="teacher-info__search-input js-teacher-info-search-input" type="search" name="teacher_name" aria-label="Enter teacher name" placeholder="Teacher name...">
+              </div>
+            </div>
+            <!-- teacher table started -->
+            <div class="teacher-table-wrapper">
+              <table class="teacher-info__table teacher-table">
+                <thead class="teacher-table__header">
+                  <tr class="teacher-table__head-row">
+                    <th class="teacher-table-head-title">
+                      №
+                    </th>
+                    <th class="teacher-table-head-title">
+                      O’qtuvchi ismi
+                    </th>
+                    <th class="teacher-table-head-title">
+                      Telefon nomer
+                    </th>
+                    <th class="teacher-table-head-title">
+                      Yo’nalish
+                    </th>
+                    <th class="teacher-table-head-title">
+                      Yoshi
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="teacher-table__body">
+                  <tr class="teacher-table__body-row">
+                    <td class="teacher-table__body-text">
+                      1
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Muxamadaliyev Ibroxim
+                    </td>
+                    <td class="teacher-table__body-text">
+                      +998900113861
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Matematika
+                    </td>
+                    <td class="teacher-table__body-text">
+                      25
+                    </td>
+                    <td class="teacher-table__body-text">
+                      <button class="teacher-table__edit-btn" type="button"></button>
+                      <button class="teacher-table__delete-btn" type="button"></button>
+                    </td>
+                  </tr>
+                  <tr class="teacher-table__body-row">
+                    <td class="teacher-table__body-text">
+                      1
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Muxamadaliyev Ibroxim
+                    </td>
+                    <td class="teacher-table__body-text">
+                      +998900113861
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Matematika
+                    </td>
+                    <td class="teacher-table__body-text">
+                      25
+                    </td>
+                    <td class="teacher-table__body-text">
+                      <button class="teacher-table__edit-btn" type="button"></button>
+                      <button class="teacher-table__delete-btn" type="button"></button>
+                    </td>
+                  </tr>
+                  <tr class="teacher-table__body-row">
+                    <td class="teacher-table__body-text">
+                      1
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Muxamadaliyev Ibroxim
+                    </td>
+                    <td class="teacher-table__body-text">
+                      +998900113861
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Matematika
+                    </td>
+                    <td class="teacher-table__body-text">
+                      25
+                    </td>
+                    <td class="teacher-table__body-text">
+                      <button class="teacher-table__edit-btn" type="button"></button>
+                      <button class="teacher-table__delete-btn" type="button"></button>
+                    </td>
+                  </tr>
+                  <tr class="teacher-table__body-row">
+                    <td class="teacher-table__body-text">
+                      1
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Muxamadaliyev Ibroxim
+                    </td>
+                    <td class="teacher-table__body-text">
+                      +998900113861
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Matematika
+                    </td>
+                    <td class="teacher-table__body-text">
+                      25
+                    </td>
+                    <td class="teacher-table__body-text">
+                      <button class="teacher-table__edit-btn" type="button"></button>
+                      <button class="teacher-table__delete-btn" type="button"></button>
+                    </td>
+                  </tr>
+                  <tr class="teacher-table__body-row">
+                    <td class="teacher-table__body-text">
+                      1
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Muxamadaliyev Ibroxim
+                    </td>
+                    <td class="teacher-table__body-text">
+                      +998900113861
+                    </td>
+                    <td class="teacher-table__body-text">
+                      Matematika
+                    </td>
+                    <td class="teacher-table__body-text">
+                      25
+                    </td>
+                    <td class="teacher-table__body-text">
+                      <button class="teacher-table__edit-btn" type="button"></button>
+                      <button class="teacher-table__delete-btn" type="button"></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- teacher table end -->
+          </div>
+          <!-- teacher info wrapper end -->
+        </div>
+      </section>
+      <!-- hero section end -->
+    </main>
+    <!-- site main end -->
+    <!-- site footer started -->
+    <footer class="site-footer">
+      
+    </footer>
+    <!-- site footer end -->
+    <script src="js/teacher.js"></script>
+  </body>
+  </html>

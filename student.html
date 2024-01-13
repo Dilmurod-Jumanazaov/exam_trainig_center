@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Training Center Students part</title>
+</head>
+<body>
+  <!-- site header started -->
+  <header class="site-header"></header>
+  <!-- site header end -->
+  <!-- site main started -->
+  <main class="site-main">
+    <!-- hero section started -->
+    <section class="hero-students students">
+      <div class="container">
+        <div class="students__wrapper">
+          <!-- crm panel wrapper start-->
+          <div class="hero__site-menu-wrapper">
+            <div class="hero__crm-panel-wrapper">
+              <div class="hero__btn-wrapper">
+                <div class="hero__titlebox">
+                  <h2 class="hero__title">
+                    CRM PANEL
+                  </h2>
+                </div>
+                <button class="hero__crm-panel-btn js-crm-panel-btn" type="button"></button>
+              </div>
+            </div>
+            <ul class="hero__menu-list">
+              <li class="hero__menu-item js-hero-menu-item hero__menu-item-active">
+                <a class="hero__menu-item-link" href="index.html">Xisobot</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="student.html">O’quvchilar</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="group.html">Guruhlar</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="teacher.html">O’qtuvchilar</a>
+              </li>
+              <li class="hero__menu-item js-hero-menu-item">
+                <a class="hero__menu-item-link" href="subject.html">Fanlar</a>
+              </li>
+            </ul>
+          </div>
+          <!-- crm panel wrapper end -->
+          <!-- students info wrapper started -->
+          <div class="students__info-wrapper student__info">
+            <h3 class="student__info-title">
+              O’quvchilar
+            </h3>
+            <div class="student__form-wrapper">
+              <h3 class="student__form-title">
+                Yangi o’quvchi qo’shish
+              </h3>
+              <form class="student__info-form js-student-info-form student__form">
+                <div class="student__form-input-box">
+                  <span class="student__form-input-title">
+                    O’quvchi familyasi
+                  </span>
+                  <input class="student__form-surname-input js-student__form-surname-input student__input" type="text" name="last_name" aria-label="Enter your last name" placeholder="Familiya" required>
+                </div>
+                <div class="student__form-input-box">
+                  <span class="student__form-input-title">
+                    O’quvchi ismi
+                  </span>
+                  <input class="student__form-name-input js-student__form-name-input student__input" type="text" name="first_name" aria-label="Enter your first_name" placeholder="Ism" required>
+                </div>
+                <div class="student__form-input-box">
+                  <span class="student__form-input-title">
+                    Telefon raqami
+                  </span>
+                  <input class="student__form-phone-input js-student__form-phone-input student__input" type="tel" name="phone_number" aria-label="Enter your phone number" placeholder="+998(xx)xxx-xx-xx" required>
+                </div>
+                <div class="student__form-input-box">
+                  <span class="student__form-input-title">
+                    Ota-onasi ismi
+                  </span>
+                  <input class="student__form-parents-input js-student__form-parents-input student__input" type="text" name="parent_name" aria-label="Enter your parent name" placeholder="Ota/onasi ismi" required>
+                </div>
+                <div class="student__form-input-box">
+                  <span class="student__form-input-title">
+                    Ota-onasi raqami
+                  </span>
+                  <input class="student__form-parents-phone-input js-student__form-parents-phone-input student__input" type="tel" name="parent_phone_number" aria-label="Enter your parent phone number" placeholder="+998(xx)xxx-xx-xx" required>
+                </div>
+                <div class="student__form-input-box">
+                  <span class="student__form-input-title">
+                    O’quvchi yoshi
+                  </span>
+                  <input class="student__form-age-input js-student__form-age-input student__input" type="number" name="age" aria-label="Enter your age" placeholder="Yosh" required>
+                </div>
+                <div class="student__form-input-box">
+                  <span class="student__form-input-title">
+                    Guruh
+                  </span>
+                  <select class="student__form-select js-student-form-select" name="group_name">
+                    <option class="student__form-group-name" hidden value="0">Select a group</option>
+                    <option class="student__form-group-name" value="1">N1</option>
+                    <option class="student__form-group-name" value="2">N2</option>
+                    <option class="student__form-group-name" value="3">N3</option>
+                    <option class="student__form-group-name" value="4">N4</option>
+                  </select>
+                </div>
+                <div class="student__form-btn-box">
+                  <button class="student__form-btn" type="submit">
+                    Qo’shish
+                  </button>
+                </div>
+              </form>
+              <div class="student__info-search-wrapper">
+                <h3 class="student__info-search-title">
+                  Bizning o’quvchilar
+                </h3>
+                <input class="student__info-search-input js-student-info-search-input" type="search" name="student_name" aria-label="Enter the students name" placeholder="Student name...">
+              </div>
+            </div>
+            <table class="student__info-table js-student-info-table student-table">
+              <!-- student table header started -->
+              <thead class="student-table__header">
+                <tr class="student-table__head-row">
+                  <th class="student-table__title">
+                    №
+                  </th>
+                  <th class="student-table__title">
+                    O’quvchi ismi
+                  </th>
+                  <th class="student-table__title">
+                    Telefon nomer
+                  </th>
+                  <th class="student-table__title">
+                    Yo’nalish
+                  </th>
+                  <th class="student-table__title">
+                    Ota-ona(F.I.SH)
+                  </th>
+                  <th class="student-table__title">
+                    Ota-ona (Tel)
+                  </th>
+                </tr>
+              </thead>
+              <!-- student table header end -->
+              <!-- student table body started -->
+              <tbody class="student-table__body table-body">
+                <tr class="tabel-body__row">
+                  <td class="table-body__text">
+                    1
+                  </td>
+                  <td class="table-body__text">
+                    Muxamadaliyev Ibroxim
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    Matematika
+                  </td>
+                  <td class="table-body__text">
+                    Ota-ona(F.I.SH)
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    <button class="table-body__edit-btn" type="button"></button>
+                    <button class="table-body__delete-btn" type="button"></button>
+                  </td>
+                </tr>
+                <tr class="tabel-body__row">
+                  <td class="table-body__text">
+                    1
+                  </td>
+                  <td class="table-body__text">
+                    Muxamadaliyev Ibroxim
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    Matematika
+                  </td>
+                  <td class="table-body__text">
+                    Ota-ona(F.I.SH)
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    <button class="table-body__edit-btn" type="button"></button>
+                    <button class="table-body__delete-btn" type="button"></button>
+                  </td>
+                </tr>
+                <tr class="tabel-body__row">
+                  <td class="table-body__text">
+                    1
+                  </td>
+                  <td class="table-body__text">
+                    Muxamadaliyev Ibroxim
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    Matematika
+                  </td>
+                  <td class="table-body__text">
+                    Ota-ona(F.I.SH)
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    <button class="table-body__edit-btn" type="button"></button>
+                    <button class="table-body__delete-btn" type="button"></button>
+                  </td>
+                </tr>
+                <tr class="tabel-body__row">
+                  <td class="table-body__text">
+                    1
+                  </td>
+                  <td class="table-body__text">
+                    Muxamadaliyev Ibroxim
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    Matematika
+                  </td>
+                  <td class="table-body__text">
+                    Ota-ona(F.I.SH)
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    <button class="table-body__edit-btn" type="button"></button>
+                    <button class="table-body__delete-btn" type="button"></button>
+                  </td>
+                </tr>
+                <tr class="tabel-body__row">
+                  <td class="table-body__text">
+                    1
+                  </td>
+                  <td class="table-body__text">
+                    Muxamadaliyev Ibroxim
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    Matematika
+                  </td>
+                  <td class="table-body__text">
+                    Ota-ona(F.I.SH)
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    <button class="table-body__edit-btn" type="button"></button>
+                    <button class="table-body__delete-btn" type="button"></button>
+                  </td>
+                </tr>
+                <tr class="tabel-body__row">
+                  <td class="table-body__text">
+                    1
+                  </td>
+                  <td class="table-body__text">
+                    Muxamadaliyev Ibroxim
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    Matematika
+                  </td>
+                  <td class="table-body__text">
+                    Ota-ona(F.I.SH)
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    <button class="table-body__edit-btn" type="button"></button>
+                    <button class="table-body__delete-btn" type="button"></button>
+                  </td>
+                </tr>
+                <tr class="tabel-body__row">
+                  <td class="table-body__text">
+                    1
+                  </td>
+                  <td class="table-body__text">
+                    Muxamadaliyev Ibroxim
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    Matematika
+                  </td>
+                  <td class="table-body__text">
+                    Ota-ona(F.I.SH)
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    <button class="table-body__edit-btn" type="button"></button>
+                    <button class="table-body__delete-btn" type="button"></button>
+                  </td>
+                </tr>
+                <tr class="tabel-body__row">
+                  <td class="table-body__text">
+                    1
+                  </td>
+                  <td class="table-body__text">
+                    Muxamadaliyev Ibroxim
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    Matematika
+                  </td>
+                  <td class="table-body__text">
+                    Ota-ona(F.I.SH)
+                  </td>
+                  <td class="table-body__text">
+                    +998900113861
+                  </td>
+                  <td class="table-body__text">
+                    <button class="table-body__edit-btn" type="button"></button>
+                    <button class="table-body__delete-btn" type="button"></button>
+                  </td>
+                </tr>
+              </tbody>
+              <!-- student table body end -->
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- hero section end -->
+  </main>
+  <!-- site main end -->
+  <!-- site footer started -->
+  <footer class="site-footer">
+    
+  </footer>
+  <!-- site footer end -->
+  <script src="js/student.js"></script>
+</body>
+</html>
