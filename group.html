@@ -56,14 +56,13 @@
                 Yangi guruh qo’shish
               </h3>
               <!-- group form started -->
-              <form class="group__form">
+              <form class="group__form js-group-form">
                 <div class="group__form-input-wrapper">
                   <span class="group__form-input-title">
                     Guruh yo’nalishi
                   </span>
                   <select class="group__form-input group__form-select js-group-subject-select" name="group_info">
-                    <option value="0" hidden>Select a subject</option>
-                    <option value="1">Matematika</option>
+                    <option value="Select a subject" hidden>Select a subject</option>
                   </select>
                 </div>
                 <div class="group__form-input-wrapper">
@@ -78,9 +77,7 @@
                   <span class="group__form-input-title">
                     Guruh nomi
                   </span>
-                  <select class="group__form-input group__form-select js-group-select" name="group_info">
-                    <option value="0" hidden>Select a group</option>
-                  </select>
+                  <input class="group__form-input group__form-group-name-input js-group__form-group-name-input" type="text" name="group_name" aria-label="Enter group name" placeholder="Group name..." required>
                 </div>
                 <div class="group__form-input-wrapper">
                   <span class="group__form-input-title">
@@ -111,7 +108,7 @@
               <h3 class="group__info-subtitle">
                 Mavjud guruhlar
               </h3>
-              <ul class="group__info-list">
+              <ul class="group__info-list js-group-info-list">
                 <li class="group__info-item">
                   <h4 class="group__info-item-title">
                     Matematika

@@ -65,6 +65,9 @@
 .hero__menu-list {
   @include m.unstyledlist();
 }
+// .menu-list {
+//   left: 0;
+// }
 .hero__menu-item {
   @include m.layout("",center);
   gap: 16px;

@@ -88,6 +88,9 @@
   background-position: 280px center;
   cursor: pointer;
 }
+.teacher-form-select-option {
+  font-size: 17px;
+}
 .teacher-form-btn-wrapper {
   position: relative;
   max-width: 314px;
@@ -168,21 +171,24 @@
   padding: 20px;
 }
 .teacher-table-head-title:nth-of-type(1) {
-  padding-right: 70px;
+  padding-right: 75px;
 }
 .teacher-table-head-title:nth-of-type(2) {
-  padding-right: 138px;
+  padding-right: 90px;
 }
 .teacher-table-head-title:nth-of-type(3) {
-  padding-right: 78px;
+  padding-right: 88px;
 }
 .teacher-table-head-title:nth-of-type(4) {
-  padding-right: 80px;
+  padding-right: 85px;
 }
 .teacher-table__body {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // display: none;
   width: 100%;
-  max-height: 320px;
+  max-height: 310px;
   height: 100%;
   overflow-y: scroll;
   scrollbar-color: var(--main-blue-color);
@@ -200,11 +206,15 @@
   background-color: var(--main-blue-color);
 }
 .teacher-table__body-row {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  text-align: center;
   border: 1px solid transparent;
+  padding-right: 130px;
 }
-.teacher-table__body-row:nth-of-type(2n) {
+.teacher-table__body-row:nth-of-type(2n - 1) {
   background-color: var(--main-table-row-bg-color);
 }
 .teacher-table__body-text {
@@ -216,6 +226,9 @@
   color: var(--main-table-text-color);
 }
 .teacher-table__edit-btn {
+  position: absolute;
+  top: 20px;
+  right: 60px;
   width: 20px;
   height: 18px;
   margin-right: 30px;
@@ -228,13 +241,50 @@
   cursor: pointer;
 }
 .teacher-table__delete-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
   width: 24px;
   height: 20px;
+  // margin-right: 30px;
   border: none;
   background-color: transparent;
   background-image: url("/images/svg/deletebtn.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
+  cursor: pointer;
+}
+// error inputs
+.error-text {
+  color: red;
+}
+.error-input {
+  border: 1px solid red;
+  color: red;
+  animation: error-input 0.5s linear 1 alternate;
+}
+.error-input::placeholder {
+  color: red;
+}
+@keyframes error-input {
+  0% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1.01);
+  }
+}
+// teacher modal form style
+.js-modal-form-image-input {
+  display: none;
+}
+.js-modal-form-image-label {
+  font-size: 15px;
+  color: gray;
+  background-image: url("/images/svg/downloadicon.svg");
+  background-repeat: no-repeat;
+  background-position: 310px center;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.20);
   cursor: pointer;
 }

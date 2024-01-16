@@ -120,6 +120,9 @@
 .subject-table__title {
   padding: 20px;
 }
+.subject-table__title:nth-of-type(1) {
+  padding-right: 50px;
+}
 .subject-table__body {
   width: 100%;
   max-height: 320px;
@@ -142,6 +145,8 @@
 }
 .subject-table__body-row {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   border: 1px solid transparent;
 }
 .subject-table__body-row:nth-of-type(2n) {
@@ -150,8 +155,13 @@
 .subject-table__body-text {
   padding: 20px;
 }
+.subject-table__body-text:nth-of-type(1) {
+  // padding-right: 30px;
+  font-size: 18px;
+  font-weight: var(--main-bold-font-weight);
+}
 .subject-table__body-text:nth-of-type(2) {
-  padding-right: 760px;
+  padding-right: 750px;
 }
 // subject table buttons style
 .subject-table__edit-btn {
@@ -169,6 +179,7 @@
 .subject-table__delete-btn {
   width: 24px;
   height: 20px;
+  margin-right: 30px;
   border: none;
   background-color: transparent;
   background-image: url("/images/svg/deletebtn.svg");
@@ -176,4 +187,73 @@
   background-position: center;
   background-size: 100%;
   cursor: pointer;
+}
+// subject modal sytle
+.modal__title {
+  width: 100%;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 26px;
+  font-weight: var(--main-bold-font-weight);
+  letter-spacing: 0.36px;
+  color: var(--main-blue-color);
+  text-align: center;
+  border: 1px solid var(--main-blue-color);
+  border-radius: 20px;
+  background-color: var(--main-background-color);
+}
+.modal__form {
+  @include m.layout("",center);
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 30px 10px;
+  border-radius: 10px;
+  background-color: var(--main-background-color);
+}
+.modal__form-input {
+  max-width: 350px;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 13px 12px;
+  border: 1px solid var(--main-border-color);
+  border-radius: 8px;
+  background-color: var(--main-white-color);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.20);
+}
+.modal-form-btn-wrapper {
+  position: relative;
+  @include m.layout(space-evenly,center);
+  width: 100%;
+}
+.modal-form__btn {
+  max-width: 150px;
+  width: 100%;
+  padding: 7px 5px;
+  font-size: 16px;
+  font-weight: var(--main-semibold-font-weight);
+  color: var(--main-white-color);
+  border: 1px solid var(--main-blue-color);
+  border-radius: 8px;
+  background-color: var(--main-blue-color);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.20);
+  cursor: pointer;
+}
+.modal-form__btn:active {
+  transform: scale(0.95);
+}
+.modal-form-close-btn {
+  max-width: 150px;
+  width: 100%;
+  padding: 7px 5px;
+  font-size: 16px;
+  font-weight: var(--main-semibold-font-weight);
+  color: var(--main-white-color);
+  border: 1px solid var(--main-blue-color);
+  border-radius: 8px;
+  background-color: var(--main-blue-color);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.20);
+  cursor: pointer;
+}
+.modal-form-close-btn:active {
+  transform: scale(0.95);
 }
