@@ -6,7 +6,7 @@ const elModalForm = document.querySelector(".js-modal-form");
 const elModalFormInput = document.querySelector(".js-modal-form-input");
 
 // this code that identifies which menu you are in.
-if(window.location.href == "http://127.0.0.1:5500/subject.html") {
+if(window.location.href == "https://exam-training-center.netlify.app/subject") {
   if (elHeroMenuItem[4].textContent.trim() == "Fanlar") {
     elHeroMenuItem[4].classList.add("hero__menu-item-active");
   }

@@ -16,7 +16,7 @@ const elModalPhoneInput = document.querySelector(".js-modal-form-phone-input");
 const elFormInputText = document.querySelectorAll(".student__form-input-title");
 
 
-if(window.location.href == "http://127.0.0.1:5500/student.html") {
+if(window.location.href == "https://exam-training-center.netlify.app/student") {
   if (elHeroMenuItem[1].textContent.trim() == "O’quvchilar") {
     elHeroMenuItem[1].classList.add("hero__menu-item-active");
   }

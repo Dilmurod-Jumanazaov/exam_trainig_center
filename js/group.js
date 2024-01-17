@@ -10,7 +10,7 @@ const elGroupList = document.querySelector(".js-group-info-list");
 const elGroupInputTitle = document.querySelectorAll(".group__form-input-title");
 
 
-if(window.location.href == "http://127.0.0.1:5500/group.html") {
+if(window.location.href == "https://exam-training-center.netlify.app/group") {
   if (elHeroMenuItem[2].textContent.trim() == "Guruhlar") {
     elHeroMenuItem[2].classList.add("hero__menu-item-active");
   }
