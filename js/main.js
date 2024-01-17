@@ -3,7 +3,7 @@ const elCount = document.querySelectorAll(".main-info__item-number");
 
 
 // this code that identifies which menu you are in.
-if(window.location.href == "https://exam-training-center.netlify.app") {
+if(window.location.href == "https://exam-training-center.netlify.app/") {
   if (elHeroMenuItem[0].textContent.trim() == "Xisobot") {
     elHeroMenuItem[0].classList.toggle("hero__menu-item-active");
   }
