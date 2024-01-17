@@ -38,6 +38,9 @@ function createSubject(url,subject) {
       getSubject(`http://localhost:9090/all-subject`);
     }
   })
+  .catch(error => {
+    console.log(error);
+  })
 };
 
 // this function for get subject
@@ -53,6 +56,9 @@ function getSubject(url) {
       renderSubject(data.data,elSubjectTableBody);
     }
   })
+  .catch(error => {
+    console.log(error);
+  });
 }
 getSubject(`http://localhost:9090/all-subject`);
 
@@ -68,7 +74,7 @@ function renderSubject(array,node) {
     const newDeleteBtn = document.createElement("button");
 
     newTableBodyRow.classList.add("subject-table__body-row");
-    newTableBodyId.classList.add("subject-table__body-text");
+    newTableBodyId.classList.add("subject-table__body-text-id");
     newTableBodyText.classList.add("subject-table__body-text");
     newEditBtn.classList.add("subject-table__edit-btn");
     newEditBtn.setAttribute("data-bs-toggle","modal");
@@ -99,6 +105,9 @@ function deleteSubject(url,id) {
       getSubject(`http://localhost:9090/all-subject`);
     }
   })
+  .catch(error => {
+    console.log(error);
+  })
 };
 
 // this function for edit subject
@@ -118,6 +127,9 @@ function editSubject(url,value) {
     if(data.status == 200) {
       getSubject(`http://localhost:9090/all-subject`);
     }
+  })
+  .catch(error => {
+    console.log(error);
   })
 }
 

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/main.css">
   <title>Training Center Students part</title>
 </head>
@@ -12,6 +13,31 @@
   <!-- site header end -->
   <!-- site main started -->
   <main class="site-main">
+    <!-- modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h3 class="modal__title">
+              Fan nomini o'zgartirish
+            </h3>
+          </div>
+          <div class="modal-body">
+            <form class="modal__form js-modal-form">
+              <input class="modal__form-input js-modal-form-name-input" type="text" name="first_name" aria-label="Enter your new name" placeholder="Ism..." required>
+              <input class="modal__form-input js-modal-form-surname-input" type="text" name="last_name" aria-label="Enter your new surname" placeholder="Familiya..." required>
+              <input class="modal__form-input js-modal-form-age-input" type="number" name="age" aria-label="Enter your new age" placeholder="Yosh..." required>
+              <input class="modal__form-input js-modal-form-phone-input" type="tel" name="phone_number" aria-label="Enter your new phone number" placeholder="+998(xx)xxx-xx-xx" required>
+              <div class="modal-form-btn-wrapper">
+                <button class="modal-form__btn" type="submit" data-bs-dismiss="modal">O'zgartirish</button>
+                <button class="modal-form-close-btn js-modal-form-close-btn" type="button" data-bs-dismiss="modal">Bekor qilish</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal -->
     <!-- hero section started -->
     <section class="hero-students students">
       <div class="container">
@@ -61,48 +87,44 @@
                   <span class="student__form-input-title">
                     O’quvchi familyasi
                   </span>
-                  <input class="student__form-surname-input js-student__form-surname-input student__input" type="text" name="last_name" aria-label="Enter your last name" placeholder="Familiya" required>
+                  <input class="student__form-surname-input js-student__form-surname-input student__input" type="text" name="last_name" aria-label="Enter your last name" placeholder="Familiya">
                 </div>
                 <div class="student__form-input-box">
                   <span class="student__form-input-title">
                     O’quvchi ismi
                   </span>
-                  <input class="student__form-name-input js-student__form-name-input student__input" type="text" name="first_name" aria-label="Enter your first_name" placeholder="Ism" required>
+                  <input class="student__form-name-input js-student__form-name-input student__input" type="text" name="first_name" aria-label="Enter your first_name" placeholder="Ism">
                 </div>
                 <div class="student__form-input-box">
                   <span class="student__form-input-title">
                     Telefon raqami
                   </span>
-                  <input class="student__form-phone-input js-student__form-phone-input student__input" type="tel" name="phone_number" aria-label="Enter your phone number" placeholder="+998(xx)xxx-xx-xx" required>
+                  <input class="student__form-phone-input js-student__form-phone-input student__input" type="tel" name="phone_number" aria-label="Enter your phone number" placeholder="+998(xx)xxx-xx-xx">
                 </div>
                 <div class="student__form-input-box">
                   <span class="student__form-input-title">
                     Ota-onasi ismi
                   </span>
-                  <input class="student__form-parents-input js-student__form-parents-input student__input" type="text" name="parent_name" aria-label="Enter your parent name" placeholder="Ota/onasi ismi" required>
+                  <input class="student__form-parents-input js-student__form-parents-input student__input" type="text" name="parent_name" aria-label="Enter your parent name" placeholder="Ota/onasi ismi">
                 </div>
                 <div class="student__form-input-box">
                   <span class="student__form-input-title">
                     Ota-onasi raqami
                   </span>
-                  <input class="student__form-parents-phone-input js-student__form-parents-phone-input student__input" type="tel" name="parent_phone_number" aria-label="Enter your parent phone number" placeholder="+998(xx)xxx-xx-xx" required>
+                  <input class="student__form-parents-phone-input js-student__form-parents-phone-input student__input" type="tel" name="parent_phone_number" aria-label="Enter your parent phone number" placeholder="+998(xx)xxx-xx-xx">
                 </div>
                 <div class="student__form-input-box">
                   <span class="student__form-input-title">
                     O’quvchi yoshi
                   </span>
-                  <input class="student__form-age-input js-student__form-age-input student__input" type="number" name="age" aria-label="Enter your age" placeholder="Yosh" required>
+                  <input class="student__form-age-input js-student__form-age-input student__input" type="number" name="age" aria-label="Enter your age" placeholder="Yosh">
                 </div>
                 <div class="student__form-input-box">
                   <span class="student__form-input-title">
                     Guruh
                   </span>
                   <select class="student__form-select js-student-form-select" name="group_name">
-                    <option class="student__form-group-name" hidden value="0">Select a group</option>
-                    <option class="student__form-group-name" value="1">N1</option>
-                    <option class="student__form-group-name" value="2">N2</option>
-                    <option class="student__form-group-name" value="3">N3</option>
-                    <option class="student__form-group-name" value="4">N4</option>
+                    <option class="student__form-group-name" hidden value="Select a group">Select a group</option>
                   </select>
                 </div>
                 <div class="student__form-btn-box">
@@ -165,176 +187,8 @@
                     +998900113861
                   </td>
                   <td class="table-body__text">
-                    <button class="table-body__edit-btn" type="button"></button>
-                    <button class="table-body__delete-btn" type="button"></button>
-                  </td>
-                </tr>
-                <tr class="tabel-body__row">
-                  <td class="table-body__text">
-                    1
-                  </td>
-                  <td class="table-body__text">
-                    Muxamadaliyev Ibroxim
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    Matematika
-                  </td>
-                  <td class="table-body__text">
-                    Ota-ona(F.I.SH)
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    <button class="table-body__edit-btn" type="button"></button>
-                    <button class="table-body__delete-btn" type="button"></button>
-                  </td>
-                </tr>
-                <tr class="tabel-body__row">
-                  <td class="table-body__text">
-                    1
-                  </td>
-                  <td class="table-body__text">
-                    Muxamadaliyev Ibroxim
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    Matematika
-                  </td>
-                  <td class="table-body__text">
-                    Ota-ona(F.I.SH)
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    <button class="table-body__edit-btn" type="button"></button>
-                    <button class="table-body__delete-btn" type="button"></button>
-                  </td>
-                </tr>
-                <tr class="tabel-body__row">
-                  <td class="table-body__text">
-                    1
-                  </td>
-                  <td class="table-body__text">
-                    Muxamadaliyev Ibroxim
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    Matematika
-                  </td>
-                  <td class="table-body__text">
-                    Ota-ona(F.I.SH)
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    <button class="table-body__edit-btn" type="button"></button>
-                    <button class="table-body__delete-btn" type="button"></button>
-                  </td>
-                </tr>
-                <tr class="tabel-body__row">
-                  <td class="table-body__text">
-                    1
-                  </td>
-                  <td class="table-body__text">
-                    Muxamadaliyev Ibroxim
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    Matematika
-                  </td>
-                  <td class="table-body__text">
-                    Ota-ona(F.I.SH)
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    <button class="table-body__edit-btn" type="button"></button>
-                    <button class="table-body__delete-btn" type="button"></button>
-                  </td>
-                </tr>
-                <tr class="tabel-body__row">
-                  <td class="table-body__text">
-                    1
-                  </td>
-                  <td class="table-body__text">
-                    Muxamadaliyev Ibroxim
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    Matematika
-                  </td>
-                  <td class="table-body__text">
-                    Ota-ona(F.I.SH)
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    <button class="table-body__edit-btn" type="button"></button>
-                    <button class="table-body__delete-btn" type="button"></button>
-                  </td>
-                </tr>
-                <tr class="tabel-body__row">
-                  <td class="table-body__text">
-                    1
-                  </td>
-                  <td class="table-body__text">
-                    Muxamadaliyev Ibroxim
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    Matematika
-                  </td>
-                  <td class="table-body__text">
-                    Ota-ona(F.I.SH)
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    <button class="table-body__edit-btn" type="button"></button>
-                    <button class="table-body__delete-btn" type="button"></button>
-                  </td>
-                </tr>
-                <tr class="tabel-body__row">
-                  <td class="table-body__text">
-                    1
-                  </td>
-                  <td class="table-body__text">
-                    Muxamadaliyev Ibroxim
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    Matematika
-                  </td>
-                  <td class="table-body__text">
-                    Ota-ona(F.I.SH)
-                  </td>
-                  <td class="table-body__text">
-                    +998900113861
-                  </td>
-                  <td class="table-body__text">
-                    <button class="table-body__edit-btn" type="button"></button>
-                    <button class="table-body__delete-btn" type="button"></button>
+                    <button class="table-body__edit-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id="1" type="button"></button>
+                    <button class="table-body__delete-btn" data-id="1" type="button"></button>
                   </td>
                 </tr>
               </tbody>
@@ -352,6 +206,7 @@
     
   </footer>
   <!-- site footer end -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/student.js"></script>
 </body>
 </html>

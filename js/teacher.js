@@ -13,7 +13,7 @@ const elTeacherTableBody = document.querySelector(".js-teacher-table-body");
 const elTeacherModalForm = document.querySelector(".js-modal-form");
 const elTeacherModalFormNameInput = document.querySelector(".js-modal-form-name-input");
 const elTeacherModalFormAgeInput = document.querySelector(".js-modal-form-age-input");
-const elTeacherModalFormImageInput = document.querySelector(".js-modal-form-image-label");
+const elTeacherModalFormImageInput = document.querySelector(".js-modal-form-image-input");
 
 
 if(window.location.href == "http://127.0.0.1:5500/teacher.html") {
@@ -26,75 +26,72 @@ if (elHeroMenuItem[3].textContent.trim() == "O’qtuvchilar") {
 elTeacherForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   
-  
-  // if(elTeacherFormSurnameInput.value == "") {
-  //   elTeacherFormInputTitles[0].classList.add("error-text");
-  //   elTeacherFormSurnameInput.classList.add("error-input");
-  //   return
-  // } else {
-  //   elTeacherFormInputTitles[0].classList.remove("error-text");
-  //   elTeacherFormSurnameInput.classList.remove("error-input");
-  // }
-  // if(elTeacherFormNameInput.value == "") {
-  //   elTeacherFormInputTitles[1].classList.add("error-text");
-  //   elTeacherFormNameInput.classList.add("error-input");
-  //   return
-  // } else {
-  //   elTeacherFormInputTitles[1].classList.remove("error-text");
-  //   elTeacherFormNameInput.classList.remove("error-input");
-  // }
-  // if(elTeacherFormAgeInput.value == "") {
-  //   elTeacherFormInputTitles[2].classList.add("error-text");
-  //   elTeacherFormAgeInput.classList.add("error-input");
-  //   return
-  // } else {
-  //   elTeacherFormInputTitles[2].classList.remove("error-text");
-  //   elTeacherFormAgeInput.classList.remove("error-input");
-  // }
-  // if(elTeacherFormPhoneInput.value == "") {
-  //   elTeacherFormInputTitles[3].classList.add("error-text");
-  //   elTeacherFormPhoneInput.classList.add("error-input");
-  //   return
-  // } else {
-  //   elTeacherFormInputTitles[3].classList.remove("error-text");
-  //   elTeacherFormPhoneInput.classList.remove("error-input");
-  // }
-  // if(elTeacherFormImageInput.value == "") {
-  //   elTeacherFormInputTitles[4].classList.add("error-text");
-  //   elTeacherFormImageLabel.classList.add("error-input");
-  //   return
-  // } else {
-  //   elTeacherFormInputTitles[4].classList.remove("error-text");
-  //   elTeacherFormImageLabel.classList.remove("error-input");
-  // }
-  // if(elTeacherFormSubjectSelect.value == "Select a subject") {
-  //   elTeacherFormInputTitles[5].classList.add("error-text");
-  //   elTeacherFormSubjectSelect.classList.add("error-input");
-  //   return
-  // } else {
-  //   elTeacherFormInputTitles[5].classList.remove("error-text");
-  //   elTeacherFormSubjectSelect.classList.remove("error-input");
-  // }
-  
   let formData = new FormData();
   formData.append("first_name",elTeacherFormNameInput.value);
   formData.append("last_name",elTeacherFormSurnameInput.value);
-  formData.append("age",elTeacherFormAgeInput.value);
+  formData.append("age",elTeacherFormAgeInput.value.toString());
   formData.append("phone_number", elTeacherFormPhoneInput.value.toString());
   formData.append("subject_id",elTeacherSubjectSelect.value);
   formData.append("img",elTeacherFormImageInput.files[0]);
-
-  console.log(elTeacherFormImageInput.files[0]);
   
   createTeacher(`http://localhost:9090/teacher/create`,formData);
   
-  elTeacherFormSurnameInput.value = "";
-  elTeacherFormNameInput.value = "";
-  elTeacherFormPhoneInput.value = "";
-  elTeacherFormAgeInput.value = "";
-  elTeacherFormSubjectSelect.value = "Select a subject";
-  // elTeacherFormImageInput.files[0] = "";
+  if(elTeacherFormSurnameInput.value == "") {
+    elTeacherFormInputTitles[0].classList.add("error-text");
+    elTeacherFormSurnameInput.classList.add("error-input");
+    return
+  } else {
+    elTeacherFormInputTitles[0].classList.remove("error-text");
+    elTeacherFormSurnameInput.classList.remove("error-input");
+  }
+  if(elTeacherFormNameInput.value == "") {
+    elTeacherFormInputTitles[1].classList.add("error-text");
+    elTeacherFormNameInput.classList.add("error-input");
+    return
+  } else {
+    elTeacherFormInputTitles[1].classList.remove("error-text");
+    elTeacherFormNameInput.classList.remove("error-input");
+  }
+  if(elTeacherFormAgeInput.value == "") {
+    elTeacherFormInputTitles[2].classList.add("error-text");
+    elTeacherFormAgeInput.classList.add("error-input");
+    return
+  } else {
+    elTeacherFormInputTitles[2].classList.remove("error-text");
+    elTeacherFormAgeInput.classList.remove("error-input");
+  }
+  if(elTeacherFormPhoneInput.value == "") {
+    elTeacherFormInputTitles[3].classList.add("error-text");
+    elTeacherFormPhoneInput.classList.add("error-input");
+    return
+  } else {
+    elTeacherFormInputTitles[3].classList.remove("error-text");
+    elTeacherFormPhoneInput.classList.remove("error-input");
+  }
+  if(elTeacherFormImageInput.files == "") {
+    elTeacherFormInputTitles[4].classList.add("error-text");
+    elTeacherFormImageLabel.classList.add("error-input");
+    return
+  } else {
+    elTeacherFormInputTitles[4].classList.remove("error-text");
+    elTeacherFormImageLabel.classList.remove("error-input");
+  }
+  if(elTeacherFormSubjectSelect.value == "Select a subject") {
+    elTeacherFormInputTitles[5].classList.add("error-text");
+    elTeacherFormSubjectSelect.classList.add("error-input");
+    return
+  } else {
+    elTeacherFormInputTitles[5].classList.remove("error-text");
+    elTeacherFormSubjectSelect.classList.remove("error-input");
+  }
 })
+
+elTeacherFormSurnameInput.value = "";
+elTeacherFormNameInput.value = "";
+elTeacherFormPhoneInput.value = "";
+elTeacherFormAgeInput.value = "";
+elTeacherFormSubjectSelect.value = "Select a subject";
+elTeacherFormImageInput.files[0] = "";
 
 // this function for create teacher
 function createTeacher(url,data) {
@@ -110,6 +107,9 @@ function createTeacher(url,data) {
       getTeacher(`http://localhost:9090/all-teacher`);
     }
   })
+  .catch(error => {
+    console.log(error);
+  })
 }
 
 // this function for get teachers
@@ -124,6 +124,9 @@ function getTeacher(url) {
   .then(data => {
     console.log(data);
     renderTeacher(data.data,elTeacherTableBody);
+  })
+  .catch(error => {
+    console.log(error);
   })
 };
 getTeacher(`http://localhost:9090/all-teacher`);
@@ -185,12 +188,15 @@ function getTeacherSubject(url) {
       });
     }
   })
+  .catch(error => {
+    console.log(error);
+  })
 }
 getTeacherSubject(`http://localhost:9090/all-subject`);
 
 // this function for edited teachers data
-function updateTeacher(url,data) {
-  fetch(url, {
+function updateTeacher(id,data) {
+  fetch(`http://localhost:9090/teacher/update/` + id, {
     method: "PUT",
     headers: {},
     body: data,
@@ -198,6 +204,12 @@ function updateTeacher(url,data) {
   .then(response => response.json())
   .then(data => {
     console.log(data);
+    if(data.status == 200) {
+      getTeacher(`http://localhost:9090/all-teacher`);
+    }
+  })
+  .catch(error => {
+    console.log(error);
   })
 };
 
@@ -214,6 +226,9 @@ function deleteTeacher(url) {
       getTeacher(`http://localhost:9090/all-teacher`);
     }
   })
+  .catch(error => {
+    console.log(error);
+  })
 }
 
 
@@ -229,9 +244,8 @@ elTeacherTableBody.addEventListener("click", (evt) => {
       modalFormData.append("age",elTeacherModalFormAgeInput.value.toString());
       modalFormData.append("img",elTeacherModalFormImageInput.files[0]); 
       
-      updateTeacher(`http://localhost:9090/teacher/update/${editTeacherId}`,modalFormData);
+      updateTeacher(editTeacherId,modalFormData);
     });
-
     elTeacherModalFormNameInput.value = "";
     elTeacherModalFormAgeInput.value = "";
     elTeacherModalFormImageInput.files[0] = "";

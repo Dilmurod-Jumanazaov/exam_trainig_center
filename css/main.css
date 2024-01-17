@@ -930,11 +930,12 @@ body {
 }
 
 .student-table__body {
-  display: none;
   max-height: 440px;
   height: 100%;
   overflow-y: scroll;
   scrollbar-color: var(--main-blue-color);
+  -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.25);
 }
 
 ::-webkit-scrollbar {
@@ -1352,6 +1353,33 @@ body {
           align-items: center;
 }
 
+.group__info-edit-btn {
+  max-width: 90px;
+  width: 100%;
+  padding: 4px 2px;
+  font-size: 15px;
+  font-weight: var(--main-semibold-font-weight);
+  color: var(--main-white-color);
+  letter-spacing: 1px;
+  border: 1px solid var(--main-blue-color);
+  border-radius: 7px;
+  background-color: var(--main-blue-color);
+  cursor: pointer;
+}
+
+.group__info-delete-btn {
+  max-width: 90px;
+  width: 100%;
+  padding: 4px 2px;
+  font-size: 15px;
+  font-weight: var(--main-semibold-font-weight);
+  color: var(--main-white-color);
+  border: 1px solid var(--main-blue-color);
+  border-radius: 7px;
+  background-color: var(--main-blue-color);
+  cursor: pointer;
+}
+
 .hero__teacher-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1413,6 +1441,7 @@ body {
 }
 
 .teacher-form-input-box {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1454,10 +1483,12 @@ body {
 }
 
 .teacher-form-image-input {
-  display: none;
+  opacity: 0;
 }
 
 .teacher-form-image-input-label {
+  position: absolute;
+  top: 47px;
   max-width: 314px;
   width: 100vh;
   padding: 13px 12px;
@@ -1584,7 +1615,6 @@ body {
           flex-direction: column;
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid var(--main-blue-color);
 }
 
 .teacher-table__header {
@@ -1611,7 +1641,7 @@ body {
 }
 
 .teacher-table-head-title:nth-of-type(2) {
-  padding-right: 90px;
+  padding-right: 130px;
 }
 
 .teacher-table-head-title:nth-of-type(3) {
@@ -1619,7 +1649,7 @@ body {
 }
 
 .teacher-table-head-title:nth-of-type(4) {
-  padding-right: 85px;
+  padding-right: 55px;
 }
 
 .teacher-table__body {
@@ -1638,6 +1668,8 @@ body {
   height: 100%;
   overflow-y: scroll;
   scrollbar-color: var(--main-blue-color);
+  -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.25);
 }
 
 ::-webkit-scrollbar {
@@ -1671,7 +1703,7 @@ body {
   padding-right: 130px;
 }
 
-.teacher-table__body-row:nth-of-type(2n - 1) {
+.teacher-table__body-row:nth-of-type(2n) {
   background-color: var(--main-table-row-bg-color);
 }
 
@@ -1769,10 +1801,13 @@ body {
   }
 }
 .js-modal-form-image-input {
-  display: none;
+  display: block;
+  opacity: 0;
 }
 
 .js-modal-form-image-label {
+  position: absolute;
+  top: 199px;
   font-size: 15px;
   color: gray;
   background-image: url("/images/svg/downloadicon.svg");
@@ -1781,6 +1816,12 @@ body {
   -webkit-box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+.js-modal-form-image-label:active {
+  -webkit-transform: scale(0.97);
+      -ms-transform: scale(0.97);
+          transform: scale(0.97);
 }
 
 .hero__subject-wrapper {
@@ -1977,6 +2018,8 @@ body {
   overflow-y: scroll;
   scrollbar-color: var(--main-blue-color);
   display: none;
+  -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.25);
 }
 
 ::-webkit-scrollbar {
@@ -2015,7 +2058,8 @@ body {
   padding: 20px;
 }
 
-.subject-table__body-text:nth-of-type(1) {
+.subject-table__body-text-id {
+  padding: 20px;
   font-size: 18px;
   font-weight: var(--main-bold-font-weight);
 }

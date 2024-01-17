@@ -7,6 +7,7 @@ const elGroupTeacherSelect = elGroupForm.querySelector(".js-group-teacher-select
 const elGroupStartTimeInput = elGroupForm.querySelector(".js-group-start-time-input");
 const elGroupStopimeInput = elGroupForm.querySelector(".js-group-stop-time-input");
 const elGroupList = document.querySelector(".js-group-info-list");
+const elGroupInputTitle = document.querySelectorAll(".group__form-input-title");
 
 
 if(window.location.href == "http://127.0.0.1:5500/group.html") {
@@ -19,6 +20,55 @@ if(window.location.href == "http://127.0.0.1:5500/group.html") {
 elGroupForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
+  if(elGroupSubjectSelect.value == "Select a subject") {
+    elGroupInputTitle[0].classList.add("error-text");
+    elGroupSubjectSelect.classList.add("error-input");
+    return;
+  } else {
+    elGroupInputTitle[0].classList.remove("error-text");
+    elGroupSubjectSelect.classList.remove("error-input");
+  }
+  if(elGroupLessonDaySelect.value == "Select a day") {
+    elGroupInputTitle[1].classList.add("error-text");
+    elGroupLessonDaySelect.classList.add("error-input");
+    return;
+  } else {
+    elGroupInputTitle[1].classList.remove("error-text");
+    elGroupLessonDaySelect.classList.remove("error-input");
+  }
+  if(elGroupNameInput.value == "") {
+    elGroupInputTitle[2].classList.add("error-text");
+    elGroupNameInput.classList.add("error-input");
+    return;
+  } else {
+    elGroupInputTitle[2].classList.remove("error-text");
+    elGroupNameInput.classList.remove("error-input");
+  }
+  if(elGroupTeacherSelect.value == "Select a teacher") {
+    elGroupInputTitle[3].classList.add("error-text");
+    elGroupTeacherSelect.classList.add("error-input");
+    return;
+  } else {
+    elGroupInputTitle[3].classList.remove("error-text");
+    elGroupTeacherSelect.classList.remove("error-input");
+  }
+  if(elGroupStartTimeInput.value == "") {
+    elGroupInputTitle[4].classList.add("error-text");
+    elGroupStartTimeInput.classList.add("error-input");
+    return;
+  } else {
+    elGroupInputTitle[4].classList.remove("error-text");
+    elGroupStartTimeInput.classList.remove("error-input");
+  }
+  if(elGroupStopimeInput.value == "") {
+    elGroupInputTitle[5].classList.add("error-text");
+    elGroupStopimeInput.classList.add("error-input");
+    return;
+  } else {
+    elGroupInputTitle[5].classList.remove("error-text");
+    elGroupStopimeInput.classList.remove("error-input");
+  }
+
   let formData = new FormData();
   formData.append("group_name",elGroupNameInput.value);
   formData.append("group_time_start",elGroupStartTimeInput.value);
@@ -30,13 +80,19 @@ elGroupForm.addEventListener("submit", (evt) => {
   createGroup(`http://localhost:9090/group/create`,formData);
 });
 
+elGroupSubjectSelect.value = "Select a subject";
+elGroupLessonDaySelect.value = "Select a day";
+elGroupNameInput.value = "";
+elGroupTeacherSelect.value = "Select a teacher";
+elGroupStartTimeInput.value = "";
+elGroupStopimeInput.value = "";
+
 // render function 
 function renderGroup(array,node) {
-  node.innerHTML = "";
 
   array.forEach(element => {
     console.log(element);
-    `
+    node.innerHTML += `
     <li class="group__info-item">
     <h4 class="group__info-item-title">
       Matematika
@@ -48,13 +104,13 @@ function renderGroup(array,node) {
           <div class="group__info-item-teacherbox">
             <span class="group__info-item-subtitle">O’qituvchi:</span>
             <p class="group__info-item-text">
-              Muxamadaliyev Ibroxim
+              ${element.last_name} ${element.first_name}
             </p>
           </div>
           <div class="group__info-item-teacherbox">
             <span class="group__info-item-subtitle">Tell raqam:</span>
             <p class="group__info-item-text">
-              +998900113861
+              +998${element.phone_number}
             </p>
           </div>
         </div>
@@ -77,12 +133,8 @@ function renderGroup(array,node) {
           </p>
         </div>
         <div class="group__info-item-lessonbox">
-          <span class="group__info-item-subtitle">
-            O’quvchilar soni
-          </span>
-          <p class="group__info-item-text">
-            25ta
-          </p>
+        <button class="group__info-edit-btn" data-id="${element.id}" type="button">Edit</button>
+        <button class="group__info-delete-btn" data-id="${element.id}" type="button">Delete</button>
         </div>
       </div>
     </div>
@@ -104,6 +156,9 @@ function createGroup(url,value) {
       getGroup(`http://localhost:9090/all-group`);
     }
   })
+  .catch(error => {
+    console.log(error);
+  })
 };
 
 function getGroup(url) {
@@ -114,6 +169,9 @@ function getGroup(url) {
   .then(response => response.json())
   .then(data => {
     console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
   })
 }
 getGroup(`http://localhost:9090/all-group`);
@@ -128,6 +186,9 @@ function editGroup(url,newValue) {
   .then(data => {
     console.log(data);
   })
+  .catch(error => {
+    console.log(error);
+  })
 };
 
 function deleteGroup(url) {
@@ -141,6 +202,9 @@ function deleteGroup(url) {
     if(data.status == 200) {
       getGroup(`http://localhost:9090/all-group`);
     }
+  })
+  .catch(error => {
+    console.log(error);
   })
 };
 
@@ -157,18 +221,20 @@ function getAllSubject(url) {
       renderSubject(data.data,elGroupSubjectSelect);
     }
   })
+  .catch(error => {
+    console.log(error);
+  })
 }
 getAllSubject(`http://localhost:9090/all-subject`)
 
 function renderSubject(array,node) {
 
   array.forEach(element => {
-    console.log(element);
     const newOption = document.createElement("option");
     newOption.textContent = element.subject_name;
     newOption.value = element.id;
 
-    elGroupSubjectSelect.appendChild(newOption);
+    node.appendChild(newOption);
   });
 };
 
@@ -177,22 +243,23 @@ function getWeekDay(url) {
   fetch(url)
   .then(response => response.json())
   .then(data => {
-    console.log(data);
     if(data.data) {
       renderWeek(data.data,elGroupLessonDaySelect);
     }
+  })
+  .catch(error => {
+    console.log(error);
   })
 }
 getWeekDay(`http://localhost:9090/all-week`);
 
 function renderWeek(array,node) {
   array.forEach(element => {
-    console.log(element);
     const newOption = document.createElement("option");
     newOption.textContent = element.week_name;
     newOption.value = element.id;
 
-    elGroupLessonDaySelect.appendChild(newOption);
+    node.appendChild(newOption);
   });
 }
 
@@ -200,21 +267,22 @@ function getAllTeacher(url) {
   fetch(url)
   .then(response => response.json())
   .then(data => {
-    console.log(data);
     if(data.data) {
       renderTeacher(data.data,elGroupTeacherSelect);
     }
+  })
+  .catch(error => {
+    console.log(error);
   })
 }
 getAllTeacher(`http://localhost:9090/all-teacher`);
 
 function renderTeacher(array,node) {
   array.forEach(element => {
-    console.log(element);
     const newOption = document.createElement("option");
     newOption.textContent = `${element.last_name} ${element.first_name}`;
     newOption.value = element.id;
 
-    elGroupTeacherSelect.appendChild(newOption);
+    node.appendChild(newOption);
   });
 }

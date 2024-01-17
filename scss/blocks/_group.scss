@@ -196,3 +196,28 @@
 .group__info-item-lessonbox {
   @include m.layout(space-between,center);
 }
+.group__info-edit-btn {
+  max-width: 90px;
+  width: 100%;
+  padding: 4px 2px;
+  font-size: 15px;
+  font-weight: var(--main-semibold-font-weight);
+  color: var(--main-white-color);
+  letter-spacing: 1px;
+  border: 1px solid var(--main-blue-color);
+  border-radius: 7px;
+  background-color: var(--main-blue-color);
+  cursor: pointer;
+}
+.group__info-delete-btn {
+  max-width: 90px;
+  width: 100%;
+  padding: 4px 2px;
+  font-size: 15px;
+  font-weight: var(--main-semibold-font-weight);
+  color: var(--main-white-color);
+  border: 1px solid var(--main-blue-color);
+  border-radius: 7px;
+  background-color: var(--main-blue-color);
+  cursor: pointer;
+}

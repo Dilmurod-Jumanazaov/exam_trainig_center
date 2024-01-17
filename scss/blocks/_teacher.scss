@@ -37,6 +37,7 @@
   padding-bottom: 63px;
 }
 .teacher-form-input-box {
+  position: relative;
   @include m.layout("","");
   flex-direction: column;
   gap: 16px;
@@ -62,9 +63,11 @@
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.20);
 }
 .teacher-form-image-input {
- display: none;
+  opacity: 0;
 }
 .teacher-form-image-input-label {
+  position: absolute;
+  top: 47px;
   max-width: 314px;
   width: 100vh;
   padding: 13px 12px;
@@ -154,7 +157,6 @@
   flex-direction: column;
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid var(--main-blue-color);
 }
 .teacher-table__header {
   font-size: 18px;
@@ -174,13 +176,13 @@
   padding-right: 75px;
 }
 .teacher-table-head-title:nth-of-type(2) {
-  padding-right: 90px;
+  padding-right: 130px;
 }
 .teacher-table-head-title:nth-of-type(3) {
   padding-right: 88px;
 }
 .teacher-table-head-title:nth-of-type(4) {
-  padding-right: 85px;
+  padding-right: 55px;
 }
 .teacher-table__body {
   display: flex;
@@ -192,6 +194,7 @@
   height: 100%;
   overflow-y: scroll;
   scrollbar-color: var(--main-blue-color);
+  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.25);
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -214,7 +217,7 @@
   border: 1px solid transparent;
   padding-right: 130px;
 }
-.teacher-table__body-row:nth-of-type(2n - 1) {
+.teacher-table__body-row:nth-of-type(2n) {
   background-color: var(--main-table-row-bg-color);
 }
 .teacher-table__body-text {
@@ -277,9 +280,12 @@
 }
 // teacher modal form style
 .js-modal-form-image-input {
-  display: none;
+  display: block;
+  opacity: 0;
 }
 .js-modal-form-image-label {
+  position: absolute;
+  top: 199px;
   font-size: 15px;
   color: gray;
   background-image: url("/images/svg/downloadicon.svg");
@@ -287,4 +293,7 @@
   background-position: 310px center;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.20);
   cursor: pointer;
+}
+.js-modal-form-image-label:active {
+  transform: scale(0.97);
 }
