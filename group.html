@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/main.css">
   <title>Training Center Group part</title>
 </head>
@@ -12,6 +13,30 @@
   <!-- site header end -->
   <!-- site main started -->
   <main class="site-main">
+    <!-- group modal started -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h3 class="modal__title">
+              Guruhni tahrirlash
+            </h3>
+          </div>
+          <div class="modal-body">
+            <form class="modal__form js-modal-form">
+              <input class="modal__form-input js-modal-form-group-input" type="text" name="group_name" aria-label="Enter your new group name" placeholder="New group name..." required>
+              <input class="modal__form-input js-modal-form-timestart-input" type="time" name="gorup_time_start" aria-label="Enter your new time start" required>
+              <input class="modal__form-input js-modal-form-timestop-input" type="time" name="group_time_stop" aria-label="Enter your new time stop" required>
+              <div class="modal-form-btn-wrapper">
+                <button class="modal-form__btn" type="submit" data-bs-toggle="modal">O'zgartirish</button>
+                <button class="modal-form-close-btn js-modal-form-close-btn" type="button" data-bs-dismiss="modal">Bekor qilish</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- group modal end -->
     <!-- hero section started -->
     <section class="hero__group group">
       <div class="container">
@@ -109,7 +134,7 @@
                 Mavjud guruhlar
               </h3>
               <ul class="group__info-list js-group-info-list">
-                <li class="group__info-item">
+                <!-- <li class="group__info-item">
                   <h4 class="group__info-item-title">
                     Matematika
                   </h4>
@@ -154,7 +179,7 @@
                       </div>
                     </div>
                   </div>
-                </li>
+                </li> -->
               </ul>
               <!-- data in groups end -->
             </div>
@@ -170,6 +195,7 @@
 
   </footer>
   <!-- site footer end -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/group.js"></script>
 </body>
 </html>

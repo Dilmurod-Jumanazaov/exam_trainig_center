@@ -14,9 +14,11 @@ const elTeacherModalForm = document.querySelector(".js-modal-form");
 const elTeacherModalFormNameInput = document.querySelector(".js-modal-form-name-input");
 const elTeacherModalFormAgeInput = document.querySelector(".js-modal-form-age-input");
 const elTeacherModalFormImageInput = document.querySelector(".js-modal-form-image-input");
+const elInput = elTeacherForm.getElementsByTagName("input");
+let editTeacherId = "";
 
 
-if(window.location.href == "https://exam-training-center.netlify.app/teacher") {
+if(window.location.href == "https://exam-training-center.netlify.app/teacher" || window.location.href == "http://127.0.0.1:5500/teacher.html") {
 if (elHeroMenuItem[3].textContent.trim() == "O’qtuvchilar") {
   elHeroMenuItem[3].classList.add("hero__menu-item-active");
 }
@@ -31,7 +33,7 @@ elTeacherForm.addEventListener("submit", (evt) => {
   formData.append("last_name",elTeacherFormSurnameInput.value);
   formData.append("age",elTeacherFormAgeInput.value.toString());
   formData.append("phone_number", elTeacherFormPhoneInput.value.toString());
-  formData.append("subject_id",elTeacherSubjectSelect.value);
+  formData.append("subject_id",elTeacherFormSubjectSelect.value);
   formData.append("img",elTeacherFormImageInput.files[0]);
   
   createTeacher(`http://localhost:9090/teacher/create`,formData);
@@ -68,13 +70,13 @@ elTeacherForm.addEventListener("submit", (evt) => {
     elTeacherFormInputTitles[3].classList.remove("error-text");
     elTeacherFormPhoneInput.classList.remove("error-input");
   }
-  if(elTeacherFormImageInput.files == "") {
+  if(elTeacherFormImageInput.files.length == 0) {
     elTeacherFormInputTitles[4].classList.add("error-text");
-    elTeacherFormImageLabel.classList.add("error-input");
+    elTeacherFormImageInput.classList.add("error-input");
     return
   } else {
     elTeacherFormInputTitles[4].classList.remove("error-text");
-    elTeacherFormImageLabel.classList.remove("error-input");
+    elTeacherFormImageInput.classList.remove("error-input");
   }
   if(elTeacherFormSubjectSelect.value == "Select a subject") {
     elTeacherFormInputTitles[5].classList.add("error-text");
@@ -84,14 +86,18 @@ elTeacherForm.addEventListener("submit", (evt) => {
     elTeacherFormInputTitles[5].classList.remove("error-text");
     elTeacherFormSubjectSelect.classList.remove("error-input");
   }
+  
+  if(elInput.value != "" && elTeacherSubjectSelect.value != "Select a subject") {
+    elTeacherFormSurnameInput.value = "";
+    elTeacherFormNameInput.value = "";
+    elTeacherFormPhoneInput.value = "";
+    elTeacherFormAgeInput.value = "";
+    elTeacherFormSubjectSelect.value = "Select a subject";
+    elTeacherFormImageInput.value = "";
+  }
 })
-
-elTeacherFormSurnameInput.value = "";
-elTeacherFormNameInput.value = "";
-elTeacherFormPhoneInput.value = "";
-elTeacherFormAgeInput.value = "";
-elTeacherFormSubjectSelect.value = "Select a subject";
-elTeacherFormImageInput.files[0] = "";
+console.log(elTeacherFormInputTitles[5]);
+console.log(elTeacherFormSubjectSelect.value);
 
 // this function for create teacher
 function createTeacher(url,data) {
@@ -184,7 +190,7 @@ function getTeacherSubject(url) {
         newOption.textContent = element.subject_name;
         newOption.value = element.id;
         
-        elTeacherSubjectSelect.appendChild(newOption);
+        elTeacherFormSubjectSelect.appendChild(newOption);
       });
     }
   })
@@ -197,20 +203,20 @@ getTeacherSubject(`http://localhost:9090/all-subject`);
 // this function for edited teachers data
 function updateTeacher(id,data) {
   fetch(`http://localhost:9090/teacher/update/` + id, {
-    method: "PUT",
-    headers: {},
-    body: data,
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    if(data.status == 200) {
-      getTeacher(`http://localhost:9090/all-teacher`);
-    }
-  })
-  .catch(error => {
-    console.log(error);
-  })
+  method: "PUT",
+  headers: {},
+  body: data,
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+  if(data.status == 200) {
+    getTeacher(`http://localhost:9090/all-teacher`);
+  }
+})
+.catch(error => {
+  console.log(error);
+})
 };
 
 // this function for delete teacher
@@ -234,25 +240,27 @@ function deleteTeacher(url) {
 
 elTeacherTableBody.addEventListener("click", (evt) => {
   if(evt.target.matches(".teacher-table__edit-btn")) {
-    const editTeacherId = evt.target.dataset.id;
-    
-    elTeacherModalForm.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      
-      let modalFormData = new FormData();
-      modalFormData.append("first_name",elTeacherModalFormNameInput.value);
-      modalFormData.append("age",elTeacherModalFormAgeInput.value.toString());
-      modalFormData.append("img",elTeacherModalFormImageInput.files[0]); 
-      
-      updateTeacher(editTeacherId,modalFormData);
-    });
-    elTeacherModalFormNameInput.value = "";
-    elTeacherModalFormAgeInput.value = "";
-    elTeacherModalFormImageInput.files[0] = "";
+    editTeacherId = evt.target.dataset.id;
   };
   
   if(evt.target.matches(".teacher-table__delete-btn")) {
     const deleteTeacherId = evt.target.dataset.id;
     deleteTeacher(`http://localhost:9090/teacher/delete/${deleteTeacherId}`);
   }
-})
+});
+
+// teacher modal form submit code
+elTeacherModalForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  
+  let modalFormData = new FormData();
+  modalFormData.append("first_name",elTeacherModalFormNameInput.value);
+  modalFormData.append("age",elTeacherModalFormAgeInput.value.toString());
+  modalFormData.append("img",elTeacherModalFormImageInput.files[0]); 
+  
+  updateTeacher(editTeacherId,modalFormData);
+  
+  elTeacherModalFormNameInput.value = "";
+  elTeacherModalFormAgeInput.value = "";
+  elTeacherModalFormImageInput.files[0] = "";
+});

@@ -644,7 +644,7 @@ body {
 }
 
 .main-info__item {
-  max-width: 511px;
+  max-width: 516px;
   width: 100%;
   padding: 20px;
   padding-bottom: 109px;
@@ -909,7 +909,7 @@ body {
 }
 
 .student-table__title:nth-of-type(1) {
-  padding-right: 25px;
+  padding-right: 45px;
 }
 
 .student-table__title:nth-of-type(2) {
@@ -918,11 +918,11 @@ body {
 
 .student-table__title:nth-of-type(3) {
   padding-right: 50px;
-  padding-left: 50px;
+  padding-left: 60px;
 }
 
 .student-table__title:nth-of-type(4) {
-  padding-right: 60px;
+  padding-right: 20px;
 }
 
 .student-table__title:nth-of-type(5) {
@@ -1305,7 +1305,7 @@ body {
   -webkit-box-align: "";
       -ms-flex-align: "";
           align-items: "";
-  gap: 5px;
+  gap: 2px;
 }
 
 .group__info-item-subtitle {
@@ -1483,7 +1483,7 @@ body {
 }
 
 .teacher-form-image-input {
-  opacity: 0;
+  opacity: 1;
 }
 
 .teacher-form-image-input-label {
@@ -1703,7 +1703,7 @@ body {
   padding-right: 130px;
 }
 
-.teacher-table__body-row:nth-of-type(2n) {
+.teacher-table__body-row:nth-child(even) {
   background-color: var(--main-table-row-bg-color);
 }
 
@@ -2008,7 +2008,7 @@ body {
 }
 
 .subject-table__title:nth-of-type(1) {
-  padding-right: 50px;
+  padding-right: 25px;
 }
 
 .subject-table__body {
@@ -2065,7 +2065,7 @@ body {
 }
 
 .subject-table__body-text:nth-of-type(2) {
-  padding-right: 750px;
+  margin-right: auto;
 }
 
 .subject-table__edit-btn {

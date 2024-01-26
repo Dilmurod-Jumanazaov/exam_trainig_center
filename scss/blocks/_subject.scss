@@ -121,7 +121,7 @@
   padding: 20px;
 }
 .subject-table__title:nth-of-type(1) {
-  padding-right: 50px;
+  padding-right: 25px;
 }
 .subject-table__body {
   width: 100%;
@@ -162,7 +162,7 @@
   font-weight: var(--main-bold-font-weight);
 }
 .subject-table__body-text:nth-of-type(2) {
-  padding-right: 750px;
+  margin-right: auto;
 }
 // subject table buttons style
 .subject-table__edit-btn {

@@ -14,28 +14,23 @@ const elModalSurnameInput = document.querySelector(".js-modal-form-surname-input
 const elModalAgeInput = document.querySelector(".js-modal-form-age-input");
 const elModalPhoneInput = document.querySelector(".js-modal-form-phone-input");
 const elFormInputText = document.querySelectorAll(".student__form-input-title");
+const elInput = elStudentForm.getElementsByTagName("input");
+let editStudentId = "";
 
 
-if(window.location.href == "https://exam-training-center.netlify.app/student") {
-  if (elHeroMenuItem[1].textContent.trim() == "O’quvchilar") {
-    elHeroMenuItem[1].classList.add("hero__menu-item-active");
-  }
+if(window.location.href == "https://exam-training-center.netlify.app/student" || window.location.href == "http://127.0.0.1:5500/student.html") {
+if (elHeroMenuItem[1].textContent.trim() == "O’quvchilar") {
+  elHeroMenuItem[1].classList.add("hero__menu-item-active");
+}
 }
 elHeroMenuItem[0].classList.remove("hero__menu-item-active");
 
 // student form
 elStudentForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-
-  let formData = new FormData();
-  formData.append("first_name",elStudentNameInput.value);
-  formData.append("last_name",elStudentSurnameInput.value);
-  formData.append("age",elStudentAgeInput.value);
-  formData.append("phone_number",elStudentPhoneInput.value);
-  formData.append("parent_name",elStudentParentNameInput.value);
-  formData.append("parent_phone_number",elStudentParentPhoneInput.value);
-  formData.append("group_id",elStudentGroupSelect.value);
-
+  
+  createStudent(`http://localhost:9090/student/create`,elStudentNameInput.value,elStudentSurnameInput.value,elStudentAgeInput.value,elStudentPhoneInput.value,elStudentParentNameInput.value,elStudentParentPhoneInput.value,elStudentGroupSelect.value);
+  
   if(elStudentSurnameInput.value == "") {
     elFormInputText[0].classList.add("error-text");
     elStudentSurnameInput.classList.add("error-input");
@@ -92,58 +87,67 @@ elStudentForm.addEventListener("submit", (evt) => {
     elFormInputText[6].classList.remove("error-text");
     elStudentGroupSelect.classList.remove("error-input");
   }
-
-  createStudent(`http://localhost:9090/student/create`,formData);
+  if(elInput.value != "" && elStudentGroupSelect.value != "Select a group") {
+    elStudentNameInput.value = "";
+    elStudentSurnameInput.value = "";
+    elStudentAgeInput.value = "";
+    elStudentPhoneInput.value = "";
+    elStudentParentNameInput.value = "";
+    elStudentParentPhoneInput.value = "";
+    elStudentGroupSelect.value = "Select a group";
+  }
 });
-
-elStudentNameInput.value = "";
-elStudentSurnameInput.value = "";
-elStudentAgeInput.value = "";
-elStudentPhoneInput.value = "";
-elStudentParentNameInput.value = "";
-elStudentParentPhoneInput.value = "";
-elStudentGroupSelect.value = "Select a group";
 
 // render student function
 function renderStudent(array,node) {
   node.innerHTML = "";
-
+  
   array.forEach(element => {
     node.innerHTML += `
     <tr class="tabel-body__row">
     <td class="table-body__text">
-      ${element.id}
+    ${element.id}
     </td>
     <td class="table-body__text">
-      ${element.last_name} ${element.first_name}
+    ${element.last_name} ${element.first_name}
     </td>
     <td class="table-body__text">
-      +998${element.phone_number}
+    +998${element.phone_number}
     </td>
     <td class="table-body__text">
-      ${element.group_name}
+    ${element.groups.group_name}
     </td>
     <td class="table-body__text">
-      ${element.parent_name}
+    ${element.parent_name}
     </td>
     <td class="table-body__text">
-      +998${element.parent_phone_number}
+    +998${element.parent_phone_number}
     </td>
     <td class="table-body__text">
-      <button class="table-body__edit-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id="${element.id}" type="button"></button>
-      <button class="table-body__delete-btn" data-id="${element.id}" type="button"></button>
+    <button class="table-body__edit-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id="${element.id}" type="button"></button>
+    <button class="table-body__delete-btn" data-id="${element.id}" type="button"></button>
     </td>
-  </tr>
+    </tr>
     `
   });
 }
 
 // create student
-function createStudent(url,data) {
+function createStudent(url,first_name,last_name,age,phone_number,parent_name,parent_phone_number,group_id) {
   fetch(url, {
     method: "POST",
-    headers: {},
-    body: data,
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      first_name,
+      last_name,
+      age,
+      phone_number,
+      parent_name,
+      parent_phone_number,
+      group_id,
+    }),
   })
   .then(response => response.json())
   .then(data => {
@@ -163,6 +167,9 @@ function getStudent(url) {
   .then(response => response.json())
   .then(data => {
     console.log(data);
+    if(data.data) {
+      renderStudent(data.data,elStudentTableBody);
+    }
   })
   .catch(error => {
     console.log(error);
@@ -174,7 +181,6 @@ getStudent(`http://localhost:9090/all-student`);
 function deleteStudent(url,id) {
   fetch(url + id, {
     method: "DELETE",
-    headers: {},
   })
   .then(response => response.json())
   .then(data => {
@@ -189,11 +195,18 @@ function deleteStudent(url,id) {
 };
 
 // update student
-function updateStudent(url,id,data) {
+function updateStudent(url,id,first_name,last_name,age,phone_number) {
   fetch(url + id, {
     method: "PUT",
-    headers: {},
-    body: data,
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      first_name,
+      last_name,
+      age,
+      phone_number,
+    })
   })
   .then(response => response.json())
   .then(data => {
@@ -215,6 +228,7 @@ function getAllGroup(url) {
     renderGroup(data.data,elStudentGroupSelect);
   })
 };
+getAllGroup(`http://localhost:9090/all-group`);
 
 // render group function
 function renderGroup(array,node) {
@@ -222,7 +236,7 @@ function renderGroup(array,node) {
     const newOption = document.createElement("option");
     newOption.textContent = element.group_name;
     newOption.value = element.id;
-
+    
     node.appendChild(newOption);
   });
 }
@@ -230,24 +244,29 @@ function renderGroup(array,node) {
 // table body
 elStudentTableBody.addEventListener("click", (evt) => {
   if(evt.target.matches(".table-body__edit-btn")) {
-    const editStudentId = evt.target.dataset.id;
-    
-    let modalFormData = new FormData();
-    modalFormData.append("first_name",elModalNameInput.value);
-    modalFormData.append("last_name",elModalSurnameInput.value);
-    modalFormData.append("age",elModalAgeInput.value);
-    modalFormData.append("phone_number",elModalPhoneInput.value);
-
-    updateStudent(`http://localhost:9090/student/update/`,editStudentId,modalFormData);
+    editStudentId = evt.target.dataset.id;
   }
+  
+  if(evt.target.matches(".table-body__delete-btn")) {
+    const deleteStudentId = evt.target.dataset.id;
+    
+    deleteStudent(`http://localhost:9090/student/delete/`,deleteStudentId);
+  }
+})
+
+// student modal form submit code 
+elModalForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  
+  updateStudent(`http://localhost:9090/student/update/`,editStudentId,elModalNameInput.value,elModalSurnameInput.value,elModalAgeInput.value,elModalPhoneInput.value);
+
+  console.log(elModalNameInput.value);
+  console.log(elModalSurnameInput.value);
+  console.log(elModalAgeInput.value);
+  console.log(elModalPhoneInput.value);
+  
   elModalNameInput.value = "";
   elModalSurnameInput.value = "";
   elModalAgeInput.value = "";
   elModalPhoneInput.value = "";
-
-  if(evt.target.matches(".table-body__delete-btn")) {
-    const deleteStudentId = evt.target.dataset.id;
-
-    deleteStudent(`http://localhost:9090/student/delete/`,deleteStudentId);
-  }
-})
+});
